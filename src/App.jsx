@@ -33,7 +33,7 @@ const App = () => {
   }, [shortcutsHelpOpen]);
 
   return (
-    <div className="relative flex h-screen w-full overflow-hidden">
+    <div className="relative flex h-[100dvh] w-full overflow-hidden">
       <Sidebar />
       <div className={`flex-1 flex flex-col ${themeConfig.background} overflow-hidden`}>
         <Searchbar />
@@ -58,7 +58,7 @@ const App = () => {
       </div>
 
       {activeSong?.title && (
-        <div className={`absolute h-28 bottom-0 left-0 md:left-[240px] right-0 flex animate-slideup bg-gradient-to-br ${themeConfig.playerBackground} backdrop-blur-lg rounded-t-3xl z-30`}>
+        <div className={`fixed h-28 bottom-0 left-0 md:left-[240px] right-0 flex animate-slideup bg-gradient-to-br ${themeConfig.playerBackground} backdrop-blur-lg rounded-t-3xl z-30`}>
           <MusicPlayer />
         </div>
       )}

@@ -113,7 +113,7 @@ const Sidebar = () => {
         )}
       </div>
 
-      <div className={`absolute top-0 h-screen w-2/3 backdrop-blur-lg z-40 p-6 md:hidden
+      <div className={`absolute top-0 h-[100dvh] w-2/3 backdrop-blur-lg z-40 p-6 md:hidden
        smooth-transition flex flex-col justify-between ${themeConfig.sidebar} bg-opacity-95 ${mobileMenuOpen ? 'left-0' : '-left-full'} transition-all duration-500`}>
         <div>
           <Logo accentColor={themeConfig.accentColor} />
