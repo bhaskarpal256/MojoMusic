@@ -6,7 +6,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime, mode = 'deskt
 
   if (mode === 'mobile-bottom') {
     return (
-      <div className="absolute bottom-0 left-0 right-0 w-full flex sm:hidden flex-row items-center px-4 py-1 select-none z-20">
+      <div className="absolute bottom-1.5 left-0 right-0 w-full flex sm:hidden flex-row items-center px-4 py-1 select-none z-20">
         <p className="text-white text-xs font-mono min-w-[35px] text-right">{value === 0 ? '0:00' : getTime(value)}</p>
         <input
           type="range"
