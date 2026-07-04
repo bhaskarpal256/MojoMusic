@@ -211,7 +211,7 @@ const MusicPlayer = () => {
         />
       </div>
       
-      <div className="flex flex-row items-center justify-end gap-1 text-gray-400 z-10">
+      <div className="flex-1 flex flex-row items-center justify-end gap-1 text-gray-400 z-10">
         <button
           onClick={() => setVisualizerOpen(true)}
           title="Open Visualizer"
