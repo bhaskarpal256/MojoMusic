@@ -26,22 +26,22 @@ const SongCard = ({ song, isPlaying, activeSong, i ,data}) => {
   bg-opacity-80 backdrop-blur-sm animate-slideup
   rounded-lg cursor-pointer group hover:bg-white/10 transition-all duration-300">
     <div className="relative w-full h-36 sm:h-44 group">
-      <div className={`absolute inset-0 justify-center
-      items-center bg-black bg-opacity-50
-      group-hover:flex 
-      ${activeSong?.title === song.title ?
-      'flex bg-black bg-opacity-70' : 'hidden'} 
-      `} >
+      <div 
+        onClick={activeSong?.title === song.title && isPlaying ? handlePauseClick : handlePlayClick}
+        className={`absolute inset-0 justify-center items-center bg-black bg-opacity-40 cursor-pointer
+        flex sm:hidden sm:group-hover:flex 
+        ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-65' : ''}`}
+      >
         <div className="flex flex-col items-center gap-3">
           {activeSong?.title === song.title && isPlaying && (
             <Equalizer isPlaying={isPlaying} />
           )}
           <PlayPause 
-          isPlaying={isPlaying}
-          activeSong={activeSong}
-          song={song}
-          handlePause={handlePauseClick}
-          handlePlay={handlePlayClick}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            song={song}
+            handlePause={handlePauseClick}
+            handlePlay={handlePlayClick}
           />
         </div>
       </div>

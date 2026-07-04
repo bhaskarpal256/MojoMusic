@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const App = () => {
   const { activeSong, currentTheme, shortcutsHelpOpen } = useSelector((state) => state.player);
   const themeConfig = themes.find((t) => t.value === currentTheme) || themes[0];
   const location = useLocation();
-  const isFavoritesPage = location.pathname === '/favorites';
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -34,13 +34,20 @@ const App = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [shortcutsHelpOpen]);
 
+  // Scroll to top of page content on every route change
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ top: 0 });
+    }
+  }, [location.pathname]);
+
   return (
     <div className="relative flex h-[100dvh] w-full overflow-hidden">
       <Sidebar />
-      <div className={`flex-1 flex flex-col ${themeConfig.background} overflow-hidden`}>
+      <div className={`flex-1 flex flex-col ${themeConfig.background} overflow-hidden relative`}>
         <Searchbar />
 
-        <div className={`px-6 h-[calc(100vh-72px)] overflow-y-scroll overflow-x-hidden hide-scrollbar flex xl:flex-row flex-col-reverse ${activeSong?.title ? 'pb-32' : 'pb-6'}`}>
+        <div ref={scrollRef} className={`px-6 pt-[78px] h-full overflow-y-scroll overflow-x-hidden hide-scrollbar flex xl:flex-row flex-col-reverse ${activeSong?.title ? 'pb-32' : 'pb-6'}`}>
           <div className="flex-1 h-fit">
             <Routes>
               <Route path="/" element={<Discover />} />
@@ -53,7 +60,7 @@ const App = () => {
               <Route path="/favorites" element={<Favorites />} />
             </Routes>
           </div>
-          <div className={`xl:sticky relative top-0 h-fit ${isFavoritesPage ? 'hidden xl:block' : ''}`}>
+          <div className="xl:sticky relative top-0 h-fit hidden xl:block">
             <TopPlay />
           </div>
         </div>

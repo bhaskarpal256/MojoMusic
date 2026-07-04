@@ -69,7 +69,7 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="relative w-full flex flex-col px-6 pr-20 md:pr-6 pt-4 pb-2 bg-transparent">
+    <div className="absolute top-0 left-0 right-0 w-full flex flex-col px-6 pr-20 md:pr-6 pt-4 pb-3 bg-[#0a0712]/40 backdrop-blur-md border-b border-white/5 z-20 transition-all duration-300">
       <form onSubmit={handleSubmit} autoComplete="off" className={`text-gray-400 ${activeStyle.textFocus} w-full`}>
         <label htmlFor="search-field" className="sr-only">
           Search all songs
