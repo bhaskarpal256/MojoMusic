@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import { Searchbar, Sidebar, MusicPlayer, TopPlay, ShortcutsHelpModal } from './components';
 import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts, Favorites } from './pages';
@@ -11,6 +11,8 @@ const App = () => {
   const dispatch = useDispatch();
   const { activeSong, currentTheme, shortcutsHelpOpen } = useSelector((state) => state.player);
   const themeConfig = themes.find((t) => t.value === currentTheme) || themes[0];
+  const location = useLocation();
+  const isFavoritesPage = location.pathname === '/favorites';
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -51,7 +53,7 @@ const App = () => {
               <Route path="/favorites" element={<Favorites />} />
             </Routes>
           </div>
-          <div className="xl:sticky relative top-0 h-fit">
+          <div className={`xl:sticky relative top-0 h-fit ${isFavoritesPage ? 'hidden xl:block' : ''}`}>
             <TopPlay />
           </div>
         </div>
