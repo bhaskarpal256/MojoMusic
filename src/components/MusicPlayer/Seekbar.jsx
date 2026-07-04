@@ -15,7 +15,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime, mode = 'deskt
           min={min}
           max={max}
           onInput={onInput}
-          className="flex-1 h-1 mx-3 rounded-lg cursor-pointer accent-white bg-white/20 hover:bg-white/30 transition-colors"
+          className="flex-1 h-1 mx-3 rounded-lg cursor-pointer accent-white"
         />
         <p className="text-white text-xs font-mono min-w-[35px]">{max === 0 ? '0:00' : getTime(max)}</p>
       </div>
@@ -33,7 +33,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime, mode = 'deskt
         min={min}
         max={max}
         onInput={onInput}
-        className="w-24 md:w-56 2xl:w-96 h-1 mx-4 2xl:mx-6 rounded-lg cursor-pointer accent-white bg-white/10 hover:bg-white/25"
+        className="w-24 md:w-56 2xl:w-96 h-1 mx-4 2xl:mx-6 rounded-lg cursor-pointer accent-white"
       />
       <p className="text-white text-sm font-medium">{max === 0 ? '0:00' : getTime(max)}</p>
     </div>

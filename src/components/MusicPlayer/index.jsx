@@ -172,7 +172,7 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="relative sm:px-12 px-8 w-full h-full flex items-center justify-between">
+    <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">
       {/* Subtle ambient visualizer wave in background */}
       <canvas ref={ambientCanvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-20 rounded-t-3xl" />
 
