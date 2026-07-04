@@ -3,9 +3,30 @@ import { NavLink } from 'react-router-dom';
 import { RiCloseLine} from 'react-icons/ri';
 import { HiOutlineMenu} from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
-import { logo } from '../assets';
 import { links, themes } from '../assets/constants';
 import { setTheme, toggleShortcutsHelp } from '../redux/features/playerSlice';
+
+const Logo = ({ accentColor }) => (
+  <div className="flex items-center gap-3 select-none px-2 py-1">
+    <svg 
+      className="w-9 h-9 flex-shrink-0 animate-pulse" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2.5" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+      style={{ color: accentColor }}
+    >
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" fill="currentColor" fillOpacity="0.2" />
+      <circle cx="18" cy="16" r="3" fill="currentColor" fillOpacity="0.2" />
+    </svg>
+    <span className="text-white font-extrabold text-2xl tracking-wider font-sans">
+      Mojo<span style={{ color: accentColor }}>Music</span>
+    </span>
+  </div>
+);
 
 const NavLinks = ({ handleClick }) => {
   const { currentTheme } = useSelector((state) => state.player);
@@ -73,7 +94,7 @@ const Sidebar = () => {
   return ( 
     <>
       <div className={`md:flex hidden flex-col w-[240px] py-10 px-4 ${themeConfig.sidebar} transition-colors duration-500`}>
-        <img src={logo} alt="logo" className="w-full h-11 object-contain" />
+        <Logo accentColor={themeConfig.accentColor} />
         <NavLinks />
         <ThemePicker 
           currentTheme={currentTheme} 
@@ -95,7 +116,7 @@ const Sidebar = () => {
       <div className={`absolute top-0 h-screen w-2/3 backdrop-blur-lg z-40 p-6 md:hidden
        smooth-transition flex flex-col justify-between ${themeConfig.sidebar} bg-opacity-95 ${mobileMenuOpen ? 'left-0' : '-left-full'} transition-all duration-500`}>
         <div>
-          <img src={logo} alt="logo" className="w-full h-11 object-contain" />
+          <Logo accentColor={themeConfig.accentColor} />
           <NavLinks handleClick={() => setMobileMenuOpen(false)}/>
         </div>
         <ThemePicker 
