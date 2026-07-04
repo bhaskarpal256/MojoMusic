@@ -17,7 +17,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
         min={min}
         max={max}
         onInput={onInput}
-        className="w-20 sm:w-56 2xl:w-96 h-1 mx-2 sm:mx-4 rounded-lg cursor-pointer accent-white"
+        className="w-36 sm:w-56 2xl:w-96 h-1 mx-2 sm:mx-4 rounded-lg cursor-pointer accent-white"
       />
       <p className="text-white text-xs sm:text-sm">{max === 0 ? '0:00' : getTime(max)}</p>
       <button type="button" onClick={() => setSeekTime(appTime + 5)} className="hidden lg:ml-4 lg:block text-white">
