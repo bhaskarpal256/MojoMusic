@@ -172,9 +172,19 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">
+    <div className="relative sm:px-12 px-8 w-full h-full flex items-center justify-between">
       {/* Subtle ambient visualizer wave in background */}
       <canvas ref={ambientCanvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-20 rounded-t-3xl" />
+
+      <Seekbar
+        value={appTime}
+        min="0"
+        max={duration}
+        onInput={(event) => setSeekTime(event.target.value)}
+        setSeekTime={setSeekTime}
+        appTime={appTime}
+        mode="mobile-top"
+      />
 
       <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} />
       <div className="flex-1 flex flex-col items-center justify-center z-10">
@@ -197,6 +207,7 @@ const MusicPlayer = () => {
           onInput={(event) => setSeekTime(event.target.value)}
           setSeekTime={setSeekTime}
           appTime={appTime}
+          mode="desktop"
         />
         <Player
           activeSong={activeSong}
