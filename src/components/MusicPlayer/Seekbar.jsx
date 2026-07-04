@@ -4,9 +4,9 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime, mode = 'deskt
   // converts the time to format 0:00
   const getTime = (time) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`;
 
-  if (mode === 'mobile-top') {
+  if (mode === 'mobile-bottom') {
     return (
-      <div className="absolute top-0 left-0 right-0 w-full flex sm:hidden flex-row items-center px-4 py-1 select-none z-20">
+      <div className="absolute bottom-0 left-0 right-0 w-full flex sm:hidden flex-row items-center px-4 py-1 select-none z-20">
         <p className="text-white text-xs font-mono min-w-[35px] text-right">{value === 0 ? '0:00' : getTime(value)}</p>
         <input
           type="range"

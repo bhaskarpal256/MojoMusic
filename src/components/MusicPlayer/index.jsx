@@ -183,7 +183,7 @@ const MusicPlayer = () => {
         onInput={(event) => setSeekTime(event.target.value)}
         setSeekTime={setSeekTime}
         appTime={appTime}
-        mode="mobile-top"
+        mode="mobile-bottom"
       />
 
       <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} />
