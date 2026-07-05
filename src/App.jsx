@@ -36,13 +36,23 @@ const App = () => {
 
   // Scroll to top of page content on every route change
   useEffect(() => {
-    if (scrollRef.current) {
-      setTimeout(() => {
-        if (scrollRef.current) {
-          scrollRef.current.scrollTop = 0;
-        }
-      }, 0);
-    }
+    const resetScroll = () => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      if (scrollRef.current) {
+        scrollRef.current.scrollTop = 0;
+      }
+    };
+
+    resetScroll();
+    const timer1 = setTimeout(resetScroll, 50);
+    const timer2 = setTimeout(resetScroll, 150);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, [location.pathname]);
 
   return (
@@ -51,7 +61,7 @@ const App = () => {
       <div className={`flex-1 flex flex-col ${themeConfig.background} overflow-hidden relative`}>
         <Searchbar />
 
-        <div ref={scrollRef} className={`px-6 pt-24 sm:pt-20 h-full overflow-y-scroll overflow-x-hidden hide-scrollbar flex xl:flex-row flex-col-reverse ${activeSong?.title ? 'pb-32' : 'pb-6'}`}>
+        <div ref={scrollRef} className={`px-6 pt-28 sm:pt-20 h-full overflow-y-scroll overflow-x-hidden hide-scrollbar flex flex-col xl:flex-row ${activeSong?.title ? 'pb-32' : 'pb-6'}`}>
           <div className="flex-1 h-fit">
             <Routes>
               <Route path="/" element={<Discover />} />
