@@ -37,7 +37,11 @@ const App = () => {
   // Scroll to top of page content on every route change
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollTo({ top: 0 });
+      setTimeout(() => {
+        if (scrollRef.current) {
+          scrollRef.current.scrollTop = 0;
+        }
+      }, 0);
     }
   }, [location.pathname]);
 
