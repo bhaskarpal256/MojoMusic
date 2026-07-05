@@ -61,7 +61,7 @@ const App = () => {
       <div className={`flex-1 flex flex-col ${themeConfig.background} overflow-hidden relative`}>
         <Searchbar />
 
-        <div ref={scrollRef} className={`px-6 pt-28 sm:pt-20 h-full overflow-y-scroll overflow-x-hidden hide-scrollbar flex flex-col xl:flex-row ${activeSong?.title ? 'pb-32' : 'pb-6'}`}>
+        <div ref={scrollRef} className={`px-6 pt-20 sm:pt-20 h-full overflow-y-scroll overflow-x-hidden hide-scrollbar flex flex-col xl:flex-row ${activeSong?.title ? 'pb-32' : 'pb-6'}`}>
           <div className="flex-1 h-fit">
             <Routes>
               <Route path="/" element={<Discover />} />

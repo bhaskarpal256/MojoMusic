@@ -21,7 +21,7 @@ const Discover = () => {
     return (
         <div className="flex flex-col">
             <div className="w-full flex justify-between items-center
-            sm:flex-row flex-col mt-4 mb-10">
+            sm:flex-row flex-col mt-4 mb-4">
                 <h2 className="font-bold text-3xl text-white
                 text-left">Discover {genreTitle}</h2>
                 <div className="relative sm:mt-0 mt-5">
@@ -35,7 +35,7 @@ const Discover = () => {
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                         </svg>
                     </div>
                 </div>

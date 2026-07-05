@@ -7,10 +7,10 @@ const Favorites = () => {
 
   return (
     <div className="flex flex-col animate-fadeIn">
-      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-4">
         Your Favorite Songs
       </h2>
-      
+
       {likedSongs.length === 0 ? (
         <div className="flex justify-center items-center h-48 bg-white/5 rounded-xl border border-white/10 p-8 text-center">
           <p className="text-gray-400 text-lg">You haven't liked any songs yet. Heart some songs to see them here!</p>
